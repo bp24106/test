@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一人暮らし掲示板</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>一人暮らし掲示板</h1>
+  <div class="search"><input id="q" type="search" placeholder="投稿を検索 (例：ゴミ 分別)"></div>
+</header>
+<div class="layout">
+  <nav><a>🏠 ホーム</a><a>☑ やること</a><a>🗑 ゴミ出し</a><a>💡 豆知識</a><a class="on">💬 掲示板</a></nav>
+  <main>
+    <div class="tabs"><button class="on" data-tab="tl">タイムライン</button><button data-tab="qa">Q&amp;A</button></div>
+    <div id="status"></div>
+    <div class="card">
+      <textarea id="body" maxlength="300" placeholder="ひとりごとや、知ったことなどを投稿する"></textarea>
+      <div class="row" id="cats">
+        <button class="chip on" data-cat="ひとりごと">ひとりごと</button>
+        <button class="chip" data-cat="情報共有">情報共有</button>
+        <button class="chip" data-cat="質問">質問</button>
+        <input class="sm" id="tagIn" placeholder="#タグを追加 (空白区切り)">
+      </div>
+      <div class="row">
+        <input class="sm" id="nick" maxlength="12" placeholder="ニックネーム">
+        <select class="sm" id="year"><option>1年</option><option>2年</option><option>3年</option><option>4年</option><option>院生</option></select>
+        <button class="post-btn" id="submit">投稿する</button>
+      </div>
+    </div>
+    <div class="row filters" id="filters">
+      <button class="chip on" data-f="all">すべて</button>
+      <button class="chip" data-f="ひとりごと">ひとりごと</button>
+      <button class="chip" data-f="情報共有">情報共有</button>
+      <button class="chip fav" data-f="fav">お気に入り</button>
+    </div>
+    <div id="list"></div>
+  </main>
+  <aside>
+    <div class="card"><h3>タグで絞り込み</h3>
+      <button class="clear" id="clr" hidden>× 絞り込みを解除</button>
+      <ul class="taglist" id="tagList"></ul>
+      <div class="newtag"><input class="sm" id="newTag" maxlength="20" placeholder="新しいタグを作成"><button id="addTag">追加</button></div>
+    </div>
+    <div class="card rule"><h3>投稿のルール</h3><p>住所・部屋番号・本名フルネームなど、個人が特定できる情報は書かない。気になる投稿は「…」メニューの「通報する」から知らせてください。</p></div>
+  </aside>
+</div>
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
